@@ -3,7 +3,7 @@ import React from 'react'
 const Priv = () => {
     return (
         <div>
-            <h1>Private only</h1>
+            <h1>Private Page only</h1>
         </div>
     )
 }
