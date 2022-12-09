@@ -22,7 +22,7 @@ const Landing = () => {
   const loggedInUser = {
     "GET JOBS": "/jobs",
     "MY HEALTH": "/health/foodcalories",
-    "MY PRODUCTIVITY": "/",
+    // "MY PRODUCTIVITY": "/",
     "MY PROFILE": "/myprofile",
     "HOW WE WORK?": "/",
   };

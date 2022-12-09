@@ -12,8 +12,8 @@ class getCalories(APIView):
     def post(self,request):
         query = request.data.get('fooditem')
         nutriHEADERS = {
-        'x-app-id':"5d6d84f3",
-        'x-app-key':"2f7f7d05bd5d4882ac1e39223b7c5687",
+        'x-app-id':"8d307319",
+        'x-app-key':"2f25f7b3fb74303a68307e8b986d562f",
         'x-remote-user-id':'0'
         }
 

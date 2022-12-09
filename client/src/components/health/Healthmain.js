@@ -171,26 +171,27 @@ async function handleSubmit(event){
                         <div className="div5">
                                 <form onSubmit={handleSubmit}>
                                     <Stack direction="row" spacing={2}>
-                                        <div><TextField style={{marginTop:'20px',width:'200px'}} id="outlined-basic" label="What?" variant="outlined" inputRef={foodRef} /></div>
+                                        <div><TextField style={{marginTop:'20px',width:'200px'}} data-testid="whateat" id="whateat" label="What?" variant="outlined" inputRef={foodRef} /></div>
                                 
-                                        <div><TextField style={{marginTop:'20px',width:'200px'}} type="number" id="outlined-basic" label="How much?" variant="outlined" inputRef={quantRef} /></div>
+                                        <div><TextField style={{marginTop:'20px',width:'200px'}} type="number" data-testid="howmucheat" id="howmucheat" label="How much?" variant="outlined" inputRef={quantRef} /></div>
                                     
                                         <div>
                                             <TextField
-                                            id="outlined-select-currency"
+                                            id="currency"
                                             select
                                             label="Measure"
                                             inputRef={currencyRef}
                                             style={{marginTop:'20px',width:'120px'}}
+                                            data-testid="currency"
                                             >
                                             {quantity.map((option) => (
-                                                <MenuItem key={option.value} value={option.value}>
+                                                <MenuItem key={option.value} value={option.value} id={option.value}>
                                                 {option.label}
                                                 </MenuItem>
                                             ))}
                                             </TextField>
                                         </div>
-                                        <div><Button variant="contained" type="submit" style={{width:'150px',height:'60px',fontFamily:'inherit',fontWeight:'bold',fontSize:'20px',backgroundColor:'darkblue',color:'white',marginTop:'15px'}}>Done</Button></div>
+                                        <div><Button variant="contained" type="submit" id="healthbutton" style={{width:'150px',height:'60px',fontFamily:'inherit',fontWeight:'bold',fontSize:'20px',backgroundColor:'darkblue',color:'white',marginTop:'15px'}}>Done</Button></div>
                                         {/* <div><Button variant="contained" onClick={()=>alert('yes')} style={{width:'150px',height:'60px',fontFamily:'inherit',fontWeight:'bold',fontSize:'20px',backgroundColor:'darkblue',color:'white',marginTop:'15px'}}>Let's Balance</Button></div> */}
                                     </Stack>
                                 </form>

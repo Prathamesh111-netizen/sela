@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import "../../assets/css/healthmain.css";
 import { UserContext } from "../../contexts/UserProvider";
 import TextField from "@mui/material/TextField";
@@ -32,6 +32,24 @@ const JobMain = () => {
     HOME: "/",
   };
 
+  useEffect(async () => {
+    console.log("useeffect getting called");
+    let url = "http://localhost:8000/workstyle/getJobs/";
+    axios
+      .get(url)
+      .then((response) => {
+        console.log(response);
+        setSkill(response.data["skills"]);
+        setArr(response.data["jobs"]);
+      })
+      .catch((err) => console.log(err));
+
+    // fetch("http://localhost:8000/workstyle/getJobs/")
+    //   .then((res) => res.json())
+    //   .then((json) => {
+    //     console.log(json);
+    //   });
+  }, []);
   const toggleNav = (event) => {
     event.preventDefault();
 
@@ -59,30 +77,26 @@ const JobMain = () => {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    console.log(titleRef.current.value, contentRef.current.value, image);
-    let form_data = new FormData();
-    form_data.append("resume", image, image.name);
-    form_data.append("title", titleRef.current.value);
-    form_data.append("content", contentRef.current.value);
-    console.log(form_data);
+    // console.log(titleRef.current.value, contentRef.current.value, image);
+    // let form_data = new FormData();
+    // form_data.append("resume", image, image.name);
+    // form_data.append("title", titleRef.current.value);
+    // form_data.append("content", contentRef.current.value);
+    let form_data = {};
     let url = "http://localhost:8000/workstyle/getJobs/";
-    axios
-      .post(url, form_data, {
-        headers: {
-          "content-type": "multipart/form-data",
-        },
-      })
-      .then((res) => {
-        try {
-            setSkill(res.data["skills"]);
-            setArr(res.data["jobs"]);
-        } catch (error) {
-            console.log(error)
-        }
-        console.log("response", res.data);
-       
-      })
-      .catch((err) => console.log(err));
+    const response = await axios.get(url);
+    console.log(response);
+    // .then((res) => {
+    //   try {
+    //       setSkill(res.data["skills"]);
+    //       setArr(res.data["jobs"]);
+    //   } catch (error) {
+    //       console.log(error)
+    //   }
+    //   console.log("response", res.data);
+
+    // })
+    // .catch((err) => console.log(err));
   }
 
   const handleImageChange = (e) => {

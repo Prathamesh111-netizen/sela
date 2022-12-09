@@ -52,7 +52,7 @@ const Login = () => {
   
   const FormButton = props => (
   <div id="button" class="row">
-    <button type="submit" disabled={loading}>{props.title}</button>
+    <button type="submit" disabled={loading} id = "submitbutton">{props.title}</button>
   </div>
   );
   
@@ -60,12 +60,12 @@ const Login = () => {
     <>
     <div className="row">
       <label>Email</label>
-      <input ref={emailRef} type="email" placeholder="Enter your Email" />
+      <input ref={emailRef} type="email" placeholder="Enter your Email" id="emailinput" />
     </div>
     
     <div class="row">
       <label>Password</label>
-      <input ref={passwordRef} type="password" placeholder="Enter your Password" />
+      <input ref={passwordRef} type="password" placeholder="Enter your Password" id = "passwordinput" />
     </div>
   </>
   );

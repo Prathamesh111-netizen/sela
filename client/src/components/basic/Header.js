@@ -45,7 +45,7 @@ const NavigationMenu = (props) => {
           <div className="col col-left col-links">
             <ul className="links">
               {Object.keys(tabs).map((key, index)=> {
-                  return (<li className="link" key={index}>
+                  return (<li className="link" key={index} id ={key+index}>
                     <Link to={tabs[key]} >
                       {key}
                     </Link>
@@ -91,8 +91,8 @@ const Header = (props) => {
               aria-label="Toggle Navigation"
               onClick={event => toggleNavHandler(event)}
             >
-              <span className={`label--nav-closed${!navOpen ? ' active' : ''} selfmade`}>MENU</span>
-              <span className={`label--nav-open${navOpen ? ' active' : ''}`}>CLOSE</span>
+              <span className={`label--nav-closed${!navOpen ? ' active' : ''} selfmade`} id = "menubutton">MENU</span>
+              <span className={`label--nav-open${navOpen ? ' active' : ''}`} id = "closebutton">CLOSE</span>
             </button>
           </div>
         </header>
